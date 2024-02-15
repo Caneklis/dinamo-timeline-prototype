@@ -1,0 +1,73 @@
+---
+title: Главная страница
+description: Description index
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+<h1>Лев Иванович Яшин</h1>
+
+
+
+<div class="swiper mySwiper">
+  <div class="shutter-up"></div>
+  <div class="center-line">
+    <span></span>
+  </div>
+
+  <div class="swiper-wrapper">
+
+    {% for i in range(0, 15) -%}
+    <div class="swiper-slide">
+      <a href="#" data-open-modal="modal-1">
+        <div class="img-wrapper">
+          <img src="images/test.jpg" alt="">
+        </div>
+        <div class="slide-vertical-line"></div>
+      </a>
+      <div class="year">1952</div>
+    </div>
+    {%- endfor %}
+  </div>
+</div>
+
+<div class="shutter-down"></div>
+
+<div class="bottom-menu">
+  <a class="is-active" href="#">О герое</a>
+  <a href="#">Видеохроника</a>
+  <a href="#">В новостях</a>
+  <a href="#">Аудио</a>
+  <a href="#">Еще</a>
+  <a href="#">ENG</a>
+</div>
+
+<section class="modal modal--preload" data-modal="modal-1">
+  <div class="modal__wrapper">
+    <div class="modal__overlay" data-close-modal></div>
+    <div class="modal__content">
+      <section>
+        <div class="">
+          <a href="images/test.jpg" data-fancybox><img src="images/test.jpg" alt=""></a>
+        </div>
+        <article>
+          <h2>1967</h2>
+          <p>В начале своей спортивной карьеры Яшин играл также в хоккей с шайбой (с 1950 по 1953 год). В 1953 году он
+            стал обладателем Кубка СССР по хоккею и бронзовым призером чемпионата СССРб выступая на позиции вратаря.</p>
+        </article>
+
+      </section>
+      <button class="modal__close-btn btn" type="button" data-close-modal data-focus>
+        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="19.7384" y1="1.06066" x2="2.06072" y2="18.7383" stroke="#ffffff" stroke-width="3" />
+          <line x1="19.2946" y1="18.7383" x2="1.61689" y2="1.06067" stroke="#ffffff" stroke-width="3" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

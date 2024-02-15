@@ -1,0 +1,34 @@
+section.component-description(data-tabs='element')
+  p Лок страницы состоит из из следующих файлов: #[b ios-checker.js], #[b scroll-lock.js] они обязательны для переноса в проект.
+  p Из файла #[b scroll-lock.js] экспортируется класс #[bFocusLock], в файле создаётся экземпляр класса и записывается в глобальную область видимости #[b window.scrollLock = new ScrollLock();]
+  p Так же у вас в проекте должно находится два утилитарных класса для блокировки страницы:
+  pre
+    |
+    code.language-css.
+      .scroll-lock-ios {
+        position: fixed;
+
+        overflow: hidden;
+      }
+
+      .scroll-lock {
+        overflow: hidden;
+      }
+  p На данной странице размещено фиксированное окно, в скрол лок добавлен функционал для компенсации отступа у фиксированных элементов при локе страницы. Для этого у фиксированного элемента должен быть дата атрибут #[b data-fix-block]. Компенсация отступа происходит за счёт добавления #[b padding-right] фиксированному блоку.
+  blockquote Будьте внимательны, не устанавливайте фиксированному блоку padding-right, так как он переопределяется в js.
+  h3 Пример подключения
+  pre
+    |
+    code.language-js.
+      import '../components/scroll-lock/js/scroll-lock';
+  table
+    tr
+      th
+        p window.scrollLock.disableScrolling()
+      td
+        p Блокирует скролл
+    tr
+      th
+        p window.scrollLock.enableScrolling()
+      td
+        p Разблокирует скролл
